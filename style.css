@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: white;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.app {
+    background: lightgray;
+    padding: 20px 30px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ================= CONTROLS ================= */
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.controls button {
+    padding: 8px 14px;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #b4b4b4;
+}
+
+.controls button:hover {
+    background: #1a68d1;
+    color: white;
+}
+
+.new-game,
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* ================= SUDOKU ================= */
+
+.sudoku {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    width: 540px;
+    height: 540px;
+    border: 3px solid black;
+}
+
+/* pojedyncza komórka */
+.cell {
+    position: relative;
+    border: 1px solid #aaa;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    background: white;
+}
+
+/* grube linie 3x3 */
+.cell:nth-child(3n) {
+    border-right: 3px solid black;
+}
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54),
+.cell:nth-child(n+73):nth-child(-n+81) {
+    border-bottom: 3px solid black;
+}
+
+.cell:nth-child(9n) {
+    border-right: 3px solid black;
+}
+
+/* STARTOWE KOMÓRKI */
+.cell.fixed {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+/* KOMÓRKI DO UZUPEŁNIENIA
+.cell:not(.fixed) {
+    background-color: white;
+}*/
+
+/* POPRAWNE PO SPRAWDZENIU */
+.cell.correct {
+    background-color: #ccffcc !important;
+}
+
+/* BŁĘDNE PO SPRAWDZENIU */
+.cell.wrong {
+    background-color: #ffcccc !important;
+}
+
+.cell.selected.wrong {
+    background-color: #ffcccc;
+}
+
+.cell.selected.correct {
+    background-color: #ccffcc;
+}
+
+/* ================= VALUE ================= */
+
+.cell-value {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    z-index: 2;
+}
+
+/* ================= NOTES ================= */
+
+.cell-notes {
+    position: absolute;
+    inset: 2px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    font-size: 10px;
+    color: #555;
+}
+
+.cell-notes span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+/* aktywna notatka */
+.cell-notes span.active {
+    opacity: 1;
+}
+
+/* gdy wpisana jest wartość – notatki znikają */
+.cell.filled .cell-notes {
+    display: none;
+}
+
+/* ================= STATES ================= */
+
+.cell.selected {
+    background: #e6f0ff;
+}
+
+/*
+.cell.correct {
+    background: #ccffcc;
+}
+
+.cell.wrong {
+    background: #ffcccc;
+}*/
+
+/* ================= NUMBERS ================= */
+
+.numbers {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.numbers button {
+    padding: 8px 14px;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #b4b4b4;
+}
+
+.numbers button:hover {
+    background: #1a68d1;
+    color: white;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+/* AKTYWNY TRYB NOTATEK */
+#notes-toggle.active-notes {
+    background-color: black;
+    color: white;
+}
