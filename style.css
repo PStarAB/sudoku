@@ -94,14 +94,6 @@ h1 {
     font-weight: bold;
 }
 
-<<<<<<< HEAD=======
-/* KOMÓRKI DO UZUPEŁNIENIA
-.cell:not(.fixed) {
-    background-color: white;
-}*/
-
->>>>>>>9a357204793d504ff8d917718d2ce729cdf09f82
-
 /* POPRAWNE PO SPRAWDZENIU */
 .cell.correct {
     background-color: #ccffcc !important;
