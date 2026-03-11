@@ -248,13 +248,19 @@ h1 {
 @media (max-width: 1000px) {
 
     body {
-        padding: 10px;
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 9vw;
+        margin-bottom: 18px;
     }
 
     .app {
         width: 100%;
         max-width: 100%;
-        padding: 15px;
+        padding: 12px;
+        border-radius: 0;
     }
 
     .sudoku {
@@ -263,21 +269,54 @@ h1 {
         aspect-ratio: 1 / 1;
     }
 
-    .cell {
+    /*.cell {
         width: 100%;
         height: auto;
         aspect-ratio: 1 / 1;
+    } */
+
+    .cell-value {
+        font-size: 6vw;
+    }
+
+    .cell-notes {
+        font-size: 2.6vw;
+    }
+
+    .controls button {
+        font-size: 2.5vw;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .controls button {
+        font-size: 3vw;
+        padding: 6px 10px;
     }
 
     .numbers {
         width: 100%;
     }
 
-    .stats {
-        width: 80%;
+    .numbers button {
+        font-size: 4vw;
     }
 
-    .controls {
-        width: 60%;
+    .effects {
+        gap: 8px;
+    }
+
+    .effects button {
+        font-size: 4vw;
+        flex: 1;
+        height: 9vw;
+    }
+
+    .stats {
+        width: 100%;
+        font-size: 4vw;
     }
 }
