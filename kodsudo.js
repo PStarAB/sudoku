@@ -93,9 +93,9 @@ function generatePuzzle(solution, difficulty) {
     const puzzle = copyBoard(solution);
     let keep = 0.5;
 
-    if (difficulty === "easy") keep = 0.5;
-    else if (difficulty === "medium") keep = 0.35;
-    else if (difficulty === "hard") keep = 0.25;
+    if (difficulty === "easy") keep = 0.4;
+    else if (difficulty === "medium") keep = 0.3;
+    else if (difficulty === "hard") keep = 0.2;
 
     for (let r = 0; r < SIZE; r++) {
         for (let c = 0; c < SIZE; c++) {
@@ -238,6 +238,8 @@ function setCellValue(index, value) {
 
     notes[index].clear();
     clearNotesUI(index);
+
+    validateCell(index);
 }
 
 /* ======================= CLICK HANDLING ======================= */
@@ -421,7 +423,7 @@ document.getElementById("check").onclick = () => {
 
         if (cell.dataset.fixed === "true") return;
 
-        if (!value || value !== Number(currentSolution[r][c])) {
+        if (value !== Number(currentSolution[r][c])) {
             allCorrect = false;
 
             if (value) {
@@ -435,8 +437,7 @@ document.getElementById("check").onclick = () => {
     autoNotes();
 
     if (!allCorrect) {
-        hp--;
-        hpEl.textContent = hp;
+        loseHP();
 
         if (hp <= 0) {
             if (hp <= 0) {
@@ -445,7 +446,7 @@ document.getElementById("check").onclick = () => {
                 winCount = 0;
                 winEl.textContent = winCount;
 
-                alert("Przegrana!");
+                /*alert("Przegrana!");*/
                 unlockDifficulty();
             }
 

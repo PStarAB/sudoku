@@ -105,12 +105,12 @@ h1 {
     background-color: #ffcccc !important;
 }
 
-.cell.selected.wrong {
-    background-color: #ffcccc;
+.cell.wrong.selected {
+    background-color: #ffb5b5 !important;
 }
 
-.cell.selected.correct {
-    background-color: #ccffcc;
+.cell.correct.selected {
+    background-color: #b1ffb1 !important;
 }
 
 /* ================= VALUE ================= */
@@ -303,6 +303,7 @@ h1 {
 
     .numbers button {
         font-size: 4vw;
+        height: 6vw;
     }
 
     .effects {
