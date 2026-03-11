@@ -17,6 +17,9 @@
                 <p>Życia</p>
                 <span id="hp">0</span>
                 <p>Pomoc</p>
+                <p>HP</p>
+                <span id="hp">0</span>
+                <p>helper</p>
                 <span id="pointhelp">0</span>
             </div>
 
@@ -30,7 +33,6 @@
 
         <div class="controls">
             <div class="new-game">
-                <!--<button id="test">TEST</button>-->
                 <button id="easy">Łatwy</button>
                 <button id="medium">Średni</button>
                 <button id="hard">Trudny</button>
@@ -42,1243 +44,1246 @@
                 <button id="check">Sprawdź</button>
             </div>
         </div>
-
-        <div class="sudoku">
-            <div class="cell" data-row="0" data-col="0" data-box="0">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="0" data-col="1" data-box="0">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="0" data-col="2" data-box="0">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="0" data-col="3" data-box="1">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="0" data-col="4" data-box="1">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="0" data-col="5" data-box="1">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="0" data-col="6" data-box="2">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="0" data-col="7" data-box="2">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="0" data-col="8" data-box="2">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="1" data-col="0" data-box="0">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="1" data-col="1" data-box="0">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="1" data-col="2" data-box="0">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="1" data-col="3" data-box="1">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="1" data-col="4" data-box="1">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="1" data-col="5" data-box="1">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="1" data-col="6" data-box="2">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="1" data-col="7" data-box="2">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="1" data-col="8" data-box="2">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="2" data-col="0" data-box="0">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="2" data-col="1" data-box="0">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="2" data-col="2" data-box="0">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="2" data-col="3" data-box="1">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="2" data-col="4" data-box="1">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="2" data-col="5" data-box="1">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="2" data-col="6" data-box="2">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="2" data-col="7" data-box="2">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="2" data-col="8" data-box="2">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="3" data-col="0" data-box="3">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="3" data-col="1" data-box="3">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="3" data-col="2" data-box="3">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="3" data-col="3" data-box="4">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="3" data-col="4" data-box="4">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="3" data-col="5" data-box="4">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="3" data-col="6" data-box="5">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="3" data-col="7" data-box="5">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="3" data-col="8" data-box="5">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="4" data-col="0" data-box="3">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="4" data-col="1" data-box="3">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="4" data-col="2" data-box="3">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="4" data-col="3" data-box="4">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="4" data-col="4" data-box="4">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="4" data-col="5" data-box="4">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="4" data-col="6" data-box="5">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="4" data-col="7" data-box="5">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="4" data-col="8" data-box="5">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="5" data-col="0" data-box="3">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="5" data-col="1" data-box="3">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="5" data-col="2" data-box="3">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="5" data-col="3" data-box="4">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="5" data-col="4" data-box="4">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="5" data-col="5" data-box="4">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="5" data-col="6" data-box="5">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="5" data-col="7" data-box="5">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="5" data-col="8" data-box="5">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="6" data-col="0" data-box="6">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="6" data-col="1" data-box="6">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="6" data-col="2" data-box="6">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="6" data-col="3" data-box="7">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="6" data-col="4" data-box="7">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="6" data-col="5" data-box="7">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="6" data-col="6" data-box="8">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="6" data-col="7" data-box="8">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="6" data-col="8" data-box="8">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="7" data-col="0" data-box="6">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="7" data-col="1" data-box="6">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="7" data-col="2" data-box="6">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="7" data-col="3" data-box="7">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="7" data-col="4" data-box="7">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="7" data-col="5" data-box="7">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="7" data-col="6" data-box="8">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="7" data-col="7" data-box="8">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="7" data-col="8" data-box="8">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="8" data-col="0" data-box="6">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="8" data-col="1" data-box="6">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="8" data-col="2" data-box="6">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="8" data-col="3" data-box="7">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="8" data-col="4" data-box="7">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="8" data-col="5" data-box="7">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="8" data-col="6" data-box="8">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="8" data-col="7" data-box="8">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
-            <div class="cell" data-row="8" data-col="8" data-box="8">
-                <div class="cell-notes">
-                    <span data-note="1">1</span>
-                    <span data-note="2">2</span>
-                    <span data-note="3">3</span>
-                    <span data-note="4">4</span>
-                    <span data-note="5">5</span>
-                    <span data-note="6">6</span>
-                    <span data-note="7">7</span>
-                    <span data-note="8">8</span>
-                    <span data-note="9">9</span>
-                </div>
-                <div class="cell-value"></div>
-            </div>
-
+    </div>
+
+    <div class="sudoku">
+        <div class="cell" data-row="0" data-col="0" data-box="0">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
         </div>
 
-        <div class="numbers">
-            <button data-number="1">1</button>
-            <button data-number="2">2</button>
-            <button data-number="3">3</button>
-            <button data-number="4">4</button>
-            <button data-number="5">5</button>
-            <button data-number="6">6</button>
-            <button data-number="7">7</button>
-            <button data-number="8">8</button>
-            <button data-number="9">9</button>
+        <div class="cell" data-row="0" data-col="1" data-box="0">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
         </div>
 
-        <div class="effects">
-            <button id="erase">Usuń</button>
-            <button id="back">Wstecz</button>
+        <div class="cell" data-row="0" data-col="2" data-box="0">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
         </div>
 
-        <script src="kodsudo.js"></script>
+        <div class="cell" data-row="0" data-col="3" data-box="1">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="0" data-col="4" data-box="1">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="0" data-col="5" data-box="1">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="0" data-col="6" data-box="2">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="0" data-col="7" data-box="2">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="0" data-col="8" data-box="2">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="1" data-col="0" data-box="0">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="1" data-col="1" data-box="0">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="1" data-col="2" data-box="0">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="1" data-col="3" data-box="1">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="1" data-col="4" data-box="1">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="1" data-col="5" data-box="1">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="1" data-col="6" data-box="2">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="1" data-col="7" data-box="2">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="1" data-col="8" data-box="2">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="2" data-col="0" data-box="0">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="2" data-col="1" data-box="0">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="2" data-col="2" data-box="0">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="2" data-col="3" data-box="1">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="2" data-col="4" data-box="1">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="2" data-col="5" data-box="1">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="2" data-col="6" data-box="2">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="2" data-col="7" data-box="2">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="2" data-col="8" data-box="2">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="3" data-col="0" data-box="3">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="3" data-col="1" data-box="3">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="3" data-col="2" data-box="3">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="3" data-col="3" data-box="4">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="3" data-col="4" data-box="4">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="3" data-col="5" data-box="4">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="3" data-col="6" data-box="5">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="3" data-col="7" data-box="5">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="3" data-col="8" data-box="5">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="4" data-col="0" data-box="3">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="4" data-col="1" data-box="3">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="4" data-col="2" data-box="3">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="4" data-col="3" data-box="4">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="4" data-col="4" data-box="4">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="4" data-col="5" data-box="4">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="4" data-col="6" data-box="5">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="4" data-col="7" data-box="5">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="4" data-col="8" data-box="5">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="5" data-col="0" data-box="3">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="5" data-col="1" data-box="3">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="5" data-col="2" data-box="3">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="5" data-col="3" data-box="4">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="5" data-col="4" data-box="4">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="5" data-col="5" data-box="4">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="5" data-col="6" data-box="5">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="5" data-col="7" data-box="5">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="5" data-col="8" data-box="5">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="6" data-col="0" data-box="6">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="6" data-col="1" data-box="6">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="6" data-col="2" data-box="6">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="6" data-col="3" data-box="7">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="6" data-col="4" data-box="7">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="6" data-col="5" data-box="7">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="6" data-col="6" data-box="8">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="6" data-col="7" data-box="8">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="6" data-col="8" data-box="8">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="7" data-col="0" data-box="6">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="7" data-col="1" data-box="6">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="7" data-col="2" data-box="6">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="7" data-col="3" data-box="7">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="7" data-col="4" data-box="7">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="7" data-col="5" data-box="7">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="7" data-col="6" data-box="8">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="7" data-col="7" data-box="8">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="7" data-col="8" data-box="8">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="8" data-col="0" data-box="6">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="8" data-col="1" data-box="6">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="8" data-col="2" data-box="6">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="8" data-col="3" data-box="7">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="8" data-col="4" data-box="7">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="8" data-col="5" data-box="7">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="8" data-col="6" data-box="8">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="8" data-col="7" data-box="8">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+        <div class="cell" data-row="8" data-col="8" data-box="8">
+            <div class="cell-notes">
+                <span data-note="1">1</span>
+                <span data-note="2">2</span>
+                <span data-note="3">3</span>
+                <span data-note="4">4</span>
+                <span data-note="5">5</span>
+                <span data-note="6">6</span>
+                <span data-note="7">7</span>
+                <span data-note="8">8</span>
+                <span data-note="9">9</span>
+            </div>
+            <div class="cell-value"></div>
+        </div>
+
+    </div>
+
+    <div class="numbers">
+        <button data-number="1">1</button>
+        <button data-number="2">2</button>
+        <button data-number="3">3</button>
+        <button data-number="4">4</button>
+        <button data-number="5">5</button>
+        <button data-number="6">6</button>
+        <button data-number="7">7</button>
+        <button data-number="8">8</button>
+        <button data-number="9">9</button>
+    </div>
+
+    <div class="effects">
+        <button id="erase">Usuń</button>
+        <button id="back">Wstecz</button>
+    </div>
+
+    </div>
+
+    <script src="kodsudo.js"></script>
 </body>
 
 </html>

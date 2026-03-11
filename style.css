@@ -72,6 +72,8 @@ h1 {
     background: white;
 }
 
+
+/* grube linie 3x3 */
 .cell:nth-child(3n) {
     border-right: 3px solid black;
 }
@@ -91,6 +93,14 @@ h1 {
     background-color: #e0e0e0;
     font-weight: bold;
 }
+
+<<<<<<< HEAD=======
+/* KOMÓRKI DO UZUPEŁNIENIA
+.cell:not(.fixed) {
+    background-color: white;
+}*/
+
+>>>>>>>9a357204793d504ff8d917718d2ce729cdf09f82
 
 /* POPRAWNE PO SPRAWDZENIU */
 .cell.correct {

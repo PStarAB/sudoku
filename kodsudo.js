@@ -233,7 +233,8 @@ cells.forEach((cell, index) => {
     });
 });
 
-document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
+
+document.querySelectorAll(".numbers button").forEach(btn => {
     btn.addEventListener("click", () => {
         if (selectedIndex === null || gameOver) return;
 
