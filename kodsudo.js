@@ -28,6 +28,7 @@ const difficultyButtons = [
 const notes = Array.from({ length: 81 }, () => new Set());
 
 let pointhelp = 0;
+let history = [];
 
 const pointHelpEl = document.getElementById("pointhelp");
 const helpBtn = document.getElementById("help");
@@ -211,12 +212,28 @@ function getCurrentBoard() {
 
 /* ======================= VALUE SET ======================= */
 
+function saveHistory(index) {
+
+    const cell = cells[index];
+    const value = cell.querySelector(".cell-value").textContent;
+
+    history.push({
+        index: index,
+        value: value,
+        notes: new Set(notes[index])
+    });
+
+}
+
 function setCellValue(index, value) {
+    saveHistory(index);
+
     const cell = cells[index];
     const valueEl = cell.querySelector(".cell-value");
 
     valueEl.textContent = value;
     cell.classList.add("filled");
+
     notes[index].clear();
     clearNotesUI(index);
 }
@@ -225,16 +242,49 @@ function setCellValue(index, value) {
 
 cells.forEach((cell, index) => {
     cell.addEventListener("click", () => {
+
         if (gameOver || cell.dataset.fixed === "true") return;
 
-        cells.forEach(c => c.classList.remove("selected"));
+        cells.forEach(c => {
+            c.classList.remove("selected");
+            c.classList.remove("highlight");
+            c.classList.remove("same-number");
+        });
+
         cell.classList.add("selected");
+
+        const row = Number(cell.dataset.row);
+        const col = Number(cell.dataset.col);
+        const box = Number(cell.dataset.box);
+
+        cells.forEach(c => {
+
+            if (
+                Number(c.dataset.row) === row ||
+                Number(c.dataset.col) === col ||
+                Number(c.dataset.box) === box
+            ) {
+                c.classList.add("highlight");
+            }
+
+        });
+
+        const value = cell.querySelector(".cell-value").textContent;
+
+        if (value) {
+            cells.forEach(c => {
+                const v = c.querySelector(".cell-value").textContent;
+                if (v === value) {
+                    c.classList.add("same-number");
+                }
+            });
+        }
+
         selectedIndex = index;
     });
 });
 
-
-document.querySelectorAll(".numbers button").forEach(btn => {
+document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
     btn.addEventListener("click", () => {
         if (selectedIndex === null || gameOver) return;
 
@@ -245,6 +295,8 @@ document.querySelectorAll(".numbers button").forEach(btn => {
 
         if (noteMode) {
             if (cell.classList.contains("filled")) return;
+
+            saveHistory(selectedIndex);
 
             if (notes[selectedIndex].has(num)) {
                 notes[selectedIndex].delete(num);
@@ -426,6 +478,8 @@ function clearCell(index) {
 
     if (cell.dataset.fixed === "true") return;
 
+    saveHistory(index);
+
     const valueEl = cell.querySelector(".cell-value");
 
     valueEl.textContent = "";
@@ -473,4 +527,26 @@ helpBtn.onclick = () => {
 
     pointHelpEl.textContent = pointhelp;
 
+};
+
+document.getElementById("back").onclick = () => {
+
+    if (history.length === 0) return;
+
+    const last = history.pop();
+
+    const cell = cells[last.index];
+    const valueEl = cell.querySelector(".cell-value");
+
+    valueEl.textContent = last.value;
+
+    if (last.value) {
+        cell.classList.add("filled");
+    } else {
+        cell.classList.remove("filled");
+    }
+
+    notes[last.index] = new Set(last.notes);
+
+    renderNotes(last.index);
 };
