@@ -245,7 +245,7 @@ h1 {
 
 /* ================= MOBILE ================= */
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
 
     body {
         padding: 10px;
