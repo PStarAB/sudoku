@@ -58,8 +58,8 @@ h1 {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
-    width: 540px;
-    height: 540px;
+    width: min(95 vw, 540px);
+    aspect-ratio: 1/1;
     border: 3px solid black;
 }
 
@@ -67,8 +67,8 @@ h1 {
 .cell {
     position: relative;
     border: 1px solid #aaa;
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     background: white;
 }
@@ -166,7 +166,7 @@ h1 {
 .numbers {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    width: 540px;
+    width: min(95vw, 540px);
     margin-top: 20px;
     gap: 6px;
 }
