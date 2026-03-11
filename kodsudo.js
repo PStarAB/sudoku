@@ -20,7 +20,6 @@ const boardEl = document.querySelector(".sudoku");
 
 const cells = document.querySelectorAll(".cell");
 const difficultyButtons = [
-    document.getElementById("test"),
     document.getElementById("easy"),
     document.getElementById("medium"),
     document.getElementById("hard")
@@ -94,7 +93,6 @@ function generatePuzzle(solution, difficulty) {
     if (difficulty === "easy") keep = 0.5;
     else if (difficulty === "medium") keep = 0.35;
     else if (difficulty === "hard") keep = 0.25;
-    else if (difficulty === "test") keep = 0.8;
 
     for (let r = 0; r < SIZE; r++) {
         for (let c = 0; c < SIZE; c++) {
@@ -235,7 +233,7 @@ cells.forEach((cell, index) => {
     });
 });
 
-document.querySelectorAll(".numbers button").forEach(btn => {
+document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
     btn.addEventListener("click", () => {
         if (selectedIndex === null || gameOver) return;
 
@@ -245,6 +243,8 @@ document.querySelectorAll(".numbers button").forEach(btn => {
         const num = Number(btn.dataset.number);
 
         if (noteMode) {
+            if (cell.classList.contains("filled")) return;
+
             if (notes[selectedIndex].has(num)) {
                 notes[selectedIndex].delete(num);
             } else {
@@ -323,7 +323,6 @@ function startGame(diff, hpAmount) {
 document.getElementById("easy").onclick = () => startGame("easy", 7);
 document.getElementById("medium").onclick = () => startGame("medium", 5);
 document.getElementById("hard").onclick = () => startGame("hard", 5);
-document.getElementById("test").onclick = () => startGame("test", 3);
 
 function lockDifficulty() {
     difficultyButtons.forEach(btn => btn.disabled = true);

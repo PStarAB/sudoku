@@ -72,7 +72,6 @@ h1 {
     background: white;
 }
 
-/* grube linie 3x3 */
 .cell:nth-child(3n) {
     border-right: 3px solid black;
 }
@@ -92,11 +91,6 @@ h1 {
     background-color: #e0e0e0;
     font-weight: bold;
 }
-
-/* KOMÓRKI DO UZUPEŁNIENIA
-.cell:not(.fixed) {
-    background-color: white;
-}*/
 
 /* POPRAWNE PO SPRAWDZENIU */
 .cell.correct {
@@ -122,8 +116,12 @@ h1 {
     font-size: 26px;
     font-weight: bold;
     text-align: center;
-    line-height: 60px;
-    z-index: 2;
+    line-height: 1;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ================= NOTES ================= */
@@ -161,20 +159,12 @@ h1 {
     background: #e6f0ff;
 }
 
-/*
-.cell.correct {
-    background: #ccffcc;
-}
-
-.cell.wrong {
-    background: #ffcccc;
-}*/
 
 /* ================= NUMBERS ================= */
 
 .numbers {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     margin-top: 20px;
 }
 
@@ -188,6 +178,27 @@ h1 {
 }
 
 .numbers button:hover {
+    background: #1a68d1;
+    color: white;
+}
+
+
+.effects {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.effects button {
+    padding: 8px 14px;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #b4b4b4;
+}
+
+.effects button:hover {
     background: #1a68d1;
     color: white;
 }
@@ -211,4 +222,33 @@ h1 {
 #notes-toggle.active-notes {
     background-color: black;
     color: white;
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .app {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .sudoku {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .cell {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .numbers {
+        width: 100%;
+    }
+
 }
