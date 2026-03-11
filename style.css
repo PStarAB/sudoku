@@ -7,19 +7,21 @@ body {
     background: white;
     display: flex;
     justify-content: center;
-    padding: 40px;
+    padding: 10px;
 }
 
 .app {
     background: lightgray;
-    padding: 20px 30px 30px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /* ================= CONTROLS ================= */
@@ -57,9 +59,8 @@ h1 {
 .sudoku {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(9, 1fr);
-    width: min(95 vw, 540px);
-    aspect-ratio: 1/1;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border: 3px solid black;
 }
 
@@ -166,7 +167,7 @@ h1 {
 .numbers {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    width: min(95vw, 540px);
+    width: 100%;
     margin-top: 20px;
     gap: 6px;
 }

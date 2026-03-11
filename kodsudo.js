@@ -2,6 +2,7 @@ const SIZE = 9;
 const SUBGRID = 3;
 
 let hp = 0;
+let maxhp = 0;
 let winCount = 0;
 let bestWins = 0;
 
@@ -28,6 +29,7 @@ const difficultyButtons = [
 const notes = Array.from({ length: 81 }, () => new Set());
 
 let pointhelp = 0;
+let maxhelp = 0;
 let history = [];
 
 const pointHelpEl = document.getElementById("pointhelp");
@@ -339,7 +341,7 @@ function loseHP() {
     if (gameOver) return;
 
     hp--;
-    hpEl.textContent = hp;
+    hpEl.textContent = hp + "/" + maxhp;
 
     if (hp <= 0) {
         gameOver = true;
@@ -356,14 +358,16 @@ function startGame(diff, hpAmount) {
     autoNotes();
 
     hp = hpAmount;
-    hpEl.textContent = hp;
+    maxhp = hpAmount;
+    hpEl.textContent = hp + "/" + maxhp;
 
     if (diff === "easy") pointhelp = 6;
     else if (diff === "medium") pointhelp = 4;
     else if (diff === "hard") pointhelp = 3;
     else pointhelp = 8;
 
-    pointHelpEl.textContent = pointhelp;
+    maxhelp = pointhelp;
+    pointHelpEl.textContent = pointhelp + "/" + maxhelp;
 
     gameOver = false;
     boardActive = true;
@@ -525,7 +529,7 @@ helpBtn.onclick = () => {
 
     pointhelp--;
 
-    pointHelpEl.textContent = pointhelp;
+    pointHelpEl.textContent = pointhelp + "/" + maxhelp;
 
 };
 
