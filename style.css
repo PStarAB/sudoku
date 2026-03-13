@@ -44,10 +44,12 @@ h1 {
     background: #b4b4b4;
 }
 
-.controls button:hover {
+.controls button:hover:not(#notes-toggle) {
     background: #1a68d1;
     color: white;
 }
+
+
 
 .new-game,
 .actions {
@@ -151,9 +153,19 @@ h1 {
     opacity: 1;
 }
 
+.cell-notes span.same-note {
+    font-weight: bold;
+    color: black;
+}
+
 /* gdy wpisana jest wartość – notatki znikają */
 .cell.filled .cell-notes {
     display: none;
+}
+
+#notes-toggle.active-notes {
+    background: black;
+    color: white;
 }
 
 /* ================= STATES ================= */
@@ -189,15 +201,19 @@ h1 {
     color: white;
 }
 
+.difficulty-active {
+    background: #1a68d1 !important;
+    color: white;
+}
 
 .effects {
     display: flex;
     gap: 12px;
-    margin-top: 15px;
+    margin-top: 25px;
 }
 
 .effects button {
-    height: 50px;
+    height: 60px;
     font-size: 20px;
     padding: 8px 14px;
     border: none;
@@ -297,8 +313,8 @@ h1 {
     }
 
     .numbers button {
-        font-size: 4vw;
-        height: 8vw;
+        font-size: 6vw;
+        height: 10vw;
     }
 
     .effects {

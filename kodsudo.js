@@ -221,6 +221,28 @@ function saveHistory(index) {
     const cell = cells[index];
     const value = cell.querySelector(".cell-value").textContent;
 
+    document.querySelectorAll(".cell-notes span").forEach(s => {
+        s.classList.remove("same-note");
+    });
+
+    if (value) {
+        cells.forEach(c => {
+            const v = c.querySelector(".cell-value").textContent;
+
+            if (v === value) {
+                c.classList.add("same-number");
+            }
+
+            const notesSpans = c.querySelectorAll(".cell-notes span");
+
+            notesSpans.forEach(span => {
+                if (span.dataset.note === value && span.classList.contains("active")) {
+                    span.classList.add("same-note");
+                }
+            });
+        });
+    }
+
     history.push({
         index: index,
         value: value,
@@ -290,12 +312,14 @@ cells.forEach((cell, index) => {
 
 document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
     btn.addEventListener("click", () => {
+        const num = Number(btn.dataset.number);
+
+        highlightNumber(num);
+
         if (selectedIndex === null || gameOver) return;
 
         const cell = cells[selectedIndex];
         if (cell.dataset.fixed === "true") return;
-
-        const num = Number(btn.dataset.number);
 
         if (noteMode) {
             if (cell.classList.contains("filled")) return;
@@ -384,7 +408,7 @@ function startGame(diff, hpAmount) {
     maxhp = hpAmount;
     hpEl.textContent = hp + "/" + maxhp;
 
-    if (diff === "easy") pointhelp = 6;
+    if (diff === "easy") pointhelp = 5;
     else if (diff === "medium") pointhelp = 4;
     else if (diff === "hard") pointhelp = 3;
     else pointhelp = 8;
@@ -400,11 +424,25 @@ function startGame(diff, hpAmount) {
 
 /* ======================= DIFFICULTY ======================= */
 
-document.getElementById("easy").onclick = () => startGame("easy", 7);
-document.getElementById("medium").onclick = () => startGame("medium", 5);
-document.getElementById("hard").onclick = () => startGame("hard", 5);
-document.getElementById("test").onclick = () => startGame("test", 9);
+document.getElementById("easy").onclick = function () {
+    setDifficultyActive(this);
+    startGame("easy", 6);
+};
 
+document.getElementById("medium").onclick = function () {
+    setDifficultyActive(this);
+    startGame("medium", 5);
+};
+
+document.getElementById("hard").onclick = function () {
+    setDifficultyActive(this);
+    startGame("hard", 4);
+};
+
+document.getElementById("test").onclick = function () {
+    setDifficultyActive(this);
+    startGame("test", 9);
+};
 
 function lockDifficulty() {
     difficultyButtons.forEach(btn => btn.disabled = true);
@@ -412,6 +450,14 @@ function lockDifficulty() {
 
 function unlockDifficulty() {
     difficultyButtons.forEach(btn => btn.disabled = false);
+}
+
+function setDifficultyActive(btn) {
+    difficultyButtons.forEach(b => {
+        b.classList.remove("difficulty-active");
+    });
+
+    btn.classList.add("difficulty-active");
 }
 
 /* ======================= NOTE MODE ======================= */
@@ -613,3 +659,28 @@ document.getElementById("reset").onclick = () => {
 
     unlockDifficulty();
 };
+
+function highlightNumber(num) {
+    cells.forEach(cell => {
+        const value = cell.querySelector(".cell-value").textContent;
+
+        cell.classList.remove("same-number");
+
+        const spans = cell.querySelectorAll(".cell-notes span");
+
+        spans.forEach(span => span.classList.remove("same-note"));
+
+        if (value == num) {
+            cell.classList.add("same-number");
+        }
+
+        spans.forEach(span => {
+            if (
+                span.dataset.note == num &&
+                span.classList.contains("active")
+            ) {
+                span.classList.add("same-note");
+            }
+        });
+    });
+}
