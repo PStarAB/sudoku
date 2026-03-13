@@ -176,7 +176,7 @@ h1 {
 .numbers button {
     padding: 8px 1 4px;
     height: 50px;
-    font-size: 20px;
+    font-size: 25px;
     border: none;
     font-weight: bold;
     border-radius: 6px;
@@ -269,12 +269,6 @@ h1 {
         aspect-ratio: 1 / 1;
     }
 
-    /*.cell {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1 / 1;
-    } */
-
     .cell-value {
         font-size: 6vw;
     }
@@ -295,6 +289,7 @@ h1 {
     .controls button {
         font-size: 3vw;
         padding: 6px 10px;
+        height: 7vw;
     }
 
     .numbers {
@@ -303,7 +298,7 @@ h1 {
 
     .numbers button {
         font-size: 4vw;
-        height: 6vw;
+        height: 8vw;
     }
 
     .effects {

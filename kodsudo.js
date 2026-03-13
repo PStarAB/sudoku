@@ -21,6 +21,7 @@ const boardEl = document.querySelector(".sudoku");
 
 const cells = document.querySelectorAll(".cell");
 const difficultyButtons = [
+    document.getElementById("test"),
     document.getElementById("easy"),
     document.getElementById("medium"),
     document.getElementById("hard")
@@ -96,6 +97,7 @@ function generatePuzzle(solution, difficulty) {
     if (difficulty === "easy") keep = 0.4;
     else if (difficulty === "medium") keep = 0.3;
     else if (difficulty === "hard") keep = 0.2;
+    else keep = 0.6
 
     for (let r = 0; r < SIZE; r++) {
         for (let c = 0; c < SIZE; c++) {
@@ -247,7 +249,7 @@ function setCellValue(index, value) {
 cells.forEach((cell, index) => {
     cell.addEventListener("click", () => {
 
-        if (gameOver || cell.dataset.fixed === "true") return;
+        if (gameOver) return;
 
         cells.forEach(c => {
             c.classList.remove("selected");
@@ -262,7 +264,6 @@ cells.forEach((cell, index) => {
         const box = Number(cell.dataset.box);
 
         cells.forEach(c => {
-
             if (
                 Number(c.dataset.row) === row ||
                 Number(c.dataset.col) === col ||
@@ -270,7 +271,6 @@ cells.forEach((cell, index) => {
             ) {
                 c.classList.add("highlight");
             }
-
         });
 
         const value = cell.querySelector(".cell-value").textContent;
@@ -330,11 +330,32 @@ function validateCell(index) {
     if (value === currentSolution[r][c]) {
         cell.classList.add("correct");
         cell.classList.remove("wrong");
+
+        removeNumberFromPeers(index, value);
     } else {
         cell.classList.add("wrong");
         cell.classList.remove("correct");
         loseHP();
     }
+}
+
+function removeNumberFromPeers(index, number) {
+    const row = Math.floor(index / 9);
+    const col = index % 9;
+    const box = Number(cells[index].dataset.box);
+
+    cells.forEach((cell, i) => {
+        const r = Math.floor(i / 9);
+        const c = i % 9;
+        const b = Number(cell.dataset.box);
+
+        if (r === row || c === col || b === box) {
+            if (notes[i].has(number)) {
+                notes[i].delete(number);
+                renderNotes(i);
+            }
+        }
+    });
 }
 
 /* ======================= GAME STATE ======================= */
@@ -382,6 +403,8 @@ function startGame(diff, hpAmount) {
 document.getElementById("easy").onclick = () => startGame("easy", 7);
 document.getElementById("medium").onclick = () => startGame("medium", 5);
 document.getElementById("hard").onclick = () => startGame("hard", 5);
+document.getElementById("test").onclick = () => startGame("test", 9);
+
 
 function lockDifficulty() {
     difficultyButtons.forEach(btn => btn.disabled = true);
@@ -437,7 +460,7 @@ document.getElementById("check").onclick = () => {
     autoNotes();
 
     if (!allCorrect) {
-        loseHP();
+        //loseHP();
 
         if (hp <= 0) {
             if (hp <= 0) {
@@ -554,4 +577,39 @@ document.getElementById("back").onclick = () => {
     notes[last.index] = new Set(last.notes);
 
     renderNotes(last.index);
+};
+
+/* reset */
+
+document.getElementById("reset").onclick = () => {
+    const empty = createEmptyBoard();
+
+    renderBoard(empty);
+
+    currentSolution = null;
+    currentPuzzle = null;
+
+    winCount = 0;
+    winEl.textContent = winCount;
+
+    history = [];
+
+    selectedIndex = null;
+
+    boardActive = false;
+    gameOver = false;
+
+    hp = 0;
+    hpEl.textContent = "0";
+
+    pointhelp = 0;
+    pointHelpEl.textContent = "0";
+
+    cells.forEach(c => {
+        c.classList.remove("selected");
+        c.classList.remove("highlight");
+        c.classList.remove("same-number");
+    });
+
+    unlockDifficulty();
 };
