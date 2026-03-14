@@ -264,20 +264,18 @@ function setCellValue(index, value) {
     clearNotesUI(index);
 
     validateCell(index);
+
+    updateNumberButtons();
+    checkWin();
 }
 
 /* ======================= CLICK HANDLING ======================= */
 
 cells.forEach((cell, index) => {
     cell.addEventListener("click", () => {
-
         if (gameOver) return;
 
-        cells.forEach(c => {
-            c.classList.remove("selected");
-            c.classList.remove("highlight");
-            c.classList.remove("same-number");
-        });
+        clearSelectionVisuals();
 
         cell.classList.add("selected");
 
@@ -307,6 +305,12 @@ cells.forEach((cell, index) => {
         }
 
         selectedIndex = index;
+
+        if (value) {
+            highlightNumber(Number(value));
+        } else {
+            document.querySelectorAll(".cell-notes span").forEach(s => s.classList.remove("same-note"));
+        }
     });
 });
 
@@ -384,6 +388,40 @@ function removeNumberFromPeers(index, number) {
 
 /* ======================= GAME STATE ======================= */
 
+function clearSelectionVisuals() {
+    cells.forEach(c => {
+        c.classList.remove("selected", "highlight", "same-number");
+    });
+}
+
+function updateNumberButtons() {
+    const counts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 1, 7: 0, 8: 0, 9: 0 }; // reset licznika
+    for (let i = 1; i <= 9; i++) counts[i] = 0;
+
+    cells.forEach((cell, i) => {
+        const val = cell.querySelector(".cell-value").textContent;
+        const r = Math.floor(i / 9);
+        const c = i % 9;
+
+        if (val && Number(val) === currentSolution[r][c]) {
+            counts[val]++;
+        }
+    });
+
+    document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
+        const num = btn.dataset.number;
+        if (counts[num] >= 9) {
+            btn.disabled = true;
+            btn.style.opacity = "0.2";
+            btn.style.cursor = "not-allowed";
+        } else {
+            btn.disabled = false;
+            btn.style.opacity = "1";
+            btn.style.cursor = "pointer";
+        }
+    });
+}
+
 function loseHP() {
     if (gameOver) return;
 
@@ -400,6 +438,12 @@ function loseHP() {
 function startGame(diff, hpAmount) {
     currentSolution = generateSolvedSudoku();
     const puzzle = generatePuzzle(currentSolution, diff);
+
+    cells.forEach(c => {
+        c.classList.remove("selected");
+        c.classList.remove("highlight");
+        c.classList.remove("same-number");
+    });
 
     renderBoard(puzzle);
     autoNotes();
@@ -518,7 +562,6 @@ document.getElementById("check").onclick = () => {
                 /*alert("Przegrana!");*/
                 unlockDifficulty();
             }
-
         }
 
         return;
@@ -535,8 +578,8 @@ document.getElementById("check").onclick = () => {
     }
 
     boardActive = false;
+    clearSelectionVisuals();
     unlockDifficulty();
-
 };
 
 /* usuwanie */
@@ -601,6 +644,8 @@ helpBtn.onclick = () => {
 
     pointHelpEl.textContent = pointhelp + "/" + maxhelp;
 
+    clearSelectionVisuals();
+    checkWin();
 };
 
 document.getElementById("back").onclick = () => {
@@ -623,6 +668,8 @@ document.getElementById("back").onclick = () => {
     notes[last.index] = new Set(last.notes);
 
     renderNotes(last.index);
+
+    updateNumberButtons();
 };
 
 /* reset */
@@ -651,11 +698,7 @@ document.getElementById("reset").onclick = () => {
     pointhelp = 0;
     pointHelpEl.textContent = "0";
 
-    cells.forEach(c => {
-        c.classList.remove("selected");
-        c.classList.remove("highlight");
-        c.classList.remove("same-number");
-    });
+    clearSelectionVisuals();
 
     unlockDifficulty();
 };
@@ -683,4 +726,75 @@ function highlightNumber(num) {
             }
         });
     });
+}
+
+/* uptade buttons */
+
+function updateNumberButtons() {
+    const board = getCurrentBoard();
+    const counts = {};
+
+    for (let i = 1; i <= 9; i++) counts[i] = 0;
+
+    cells.forEach((cell, i) => {
+        const val = cell.querySelector(".cell-value").textContent;
+        const r = Math.floor(i / 9);
+        const c = i % 9;
+        if (val && Number(val) === currentSolution[r][c]) {
+            counts[val]++;
+        }
+    });
+
+    document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
+        const num = btn.dataset.number;
+        if (counts[num] >= 9) {
+            btn.disabled = true;
+            btn.style.opacity = "0.3";
+            btn.style.cursor = "not-allowed";
+        } else {
+            btn.disabled = false;
+            btn.style.opacity = "1";
+            btn.style.cursor = "pointer";
+        }
+    });
+}
+
+/* auto win */
+
+function checkWin() {
+    const board = getCurrentBoard();
+    let isComplete = true;
+
+    for (let r = 0; r < SIZE; r++) {
+        for (let c = 0; c < SIZE; c++) {
+            if (board[r][c] === 0 || board[r][c] !== currentSolution[r][c]) {
+                isComplete = false;
+                break;
+            }
+        }
+        if (!isComplete) break;
+    }
+
+    if (isComplete) {
+        handleWin();
+    }
+}
+
+function handleWin() {
+    if (!boardActive) return;
+
+    alert("Sudoku poprawne!");
+
+    winCount++;
+    winEl.textContent = winCount;
+
+    if (winCount > bestWins) {
+        bestWins = winCount;
+        bestEl.textContent = bestWins;
+    }
+
+    boardActive = false;
+    clearSelectionVisuals();
+    unlockDifficulty();
+    updateNumberButtons();
 }

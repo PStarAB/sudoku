@@ -45,7 +45,7 @@ h1 {
 }
 
 .controls button:hover:not(#notes-toggle) {
-    background: #1a68d1;
+    background: violet;
     color: white;
 }
 
@@ -112,7 +112,7 @@ h1 {
 }
 
 .cell.correct.selected {
-    background-color: #b1ffb1 !important;
+    background-color: #90fe90 !important;
 }
 
 /* ================= VALUE ================= */
@@ -154,8 +154,8 @@ h1 {
 }
 
 .cell-notes span.same-note {
-    font-weight: bold;
-    color: black;
+    font-weight: 900;
+    color: #000;
 }
 
 /* gdy wpisana jest wartość – notatki znikają */
@@ -196,20 +196,24 @@ h1 {
     background: #b4b4b4;
 }
 
+.app:has(#notes-toggle.active-notes) .numbers button {
+    font-size: 18px;
+}
+
 .numbers button:hover {
-    background: #1a68d1;
+    background: violet;
     color: white;
 }
 
 .difficulty-active {
-    background: #1a68d1 !important;
+    background: violet !important;
     color: white;
 }
 
 .effects {
     display: flex;
     gap: 12px;
-    margin-top: 25px;
+    margin-top: 30px;
 }
 
 .effects button {
@@ -224,7 +228,7 @@ h1 {
 }
 
 .effects button:hover {
-    background: #1a68d1;
+    background: violet;
     color: white;
 }
 
@@ -257,6 +261,10 @@ h1 {
 
 .cell.same-number {
     background: #b7caff;
+}
+
+.cell.correct.same-number {
+    background: #90fe90 !important;
 }
 
 /* ================= MOBILE ================= */
@@ -317,6 +325,10 @@ h1 {
         height: 10vw;
     }
 
+    .app:has(#notes-toggle.active-notes) .numbers button {
+        font-size: 4vw;
+    }
+
     .effects {
         gap: 8px;
     }
@@ -324,7 +336,7 @@ h1 {
     .effects button {
         font-size: 4vw;
         flex: 1;
-        height: 9vw;
+        height: 10vw;
     }
 
     .stats {
