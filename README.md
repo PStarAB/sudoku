@@ -6,3 +6,6 @@
 # changing losing hp
 
 # advancement: mobile works
+
+# creating new js to generate puzzle
+# is it solvable?

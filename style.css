@@ -267,6 +267,11 @@ h1 {
     background: #90fe90 !important;
 }
 
+.cell-notes span.hint-note {
+    color: green !important;
+    font-weight: bold !important;
+}
+
 /* ================= MOBILE ================= */
 
 @media (max-width: 1000px) {

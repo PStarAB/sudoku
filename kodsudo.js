@@ -1,6 +1,3 @@
-const SIZE = 9;
-const SUBGRID = 3;
-
 let hp = 0;
 let maxhp = 0;
 let winCount = 0;
@@ -35,78 +32,6 @@ let history = [];
 
 const pointHelpEl = document.getElementById("pointhelp");
 const helpBtn = document.getElementById("help");
-
-/* ======================= BOARD GENERATION ======================= */
-
-function createEmptyBoard() {
-    return Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
-}
-
-function isValid(board, row, col, num) {
-    for (let i = 0; i < SIZE; i++) {
-        if (board[row][i] === num || board[i][col] === num) return false;
-    }
-
-    const startRow = row - row % SUBGRID;
-    const startCol = col - col % SUBGRID;
-
-    for (let r = 0; r < SUBGRID; r++) {
-        for (let c = 0; c < SUBGRID; c++) {
-            if (board[startRow + r][startCol + c] === num) return false;
-        }
-    }
-    return true;
-}
-
-function shuffle(arr) {
-    return arr.sort(() => Math.random() - 0.5);
-}
-
-function fillBoard(board) {
-    for (let r = 0; r < SIZE; r++) {
-        for (let c = 0; c < SIZE; c++) {
-            if (board[r][c] === 0) {
-                for (let n of shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9])) {
-                    if (isValid(board, r, c, n)) {
-                        board[r][c] = n;
-                        if (fillBoard(board)) return true;
-                        board[r][c] = 0;
-                    }
-                }
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-function generateSolvedSudoku() {
-    const board = createEmptyBoard();
-    fillBoard(board);
-    return board;
-}
-
-function copyBoard(board) {
-    return board.map(row => [...row]);
-}
-
-function generatePuzzle(solution, difficulty) {
-    const puzzle = copyBoard(solution);
-    let keep = 0.5;
-
-    if (difficulty === "easy") keep = 0.4;
-    else if (difficulty === "medium") keep = 0.3;
-    else if (difficulty === "hard") keep = 0.2;
-    else keep = 0.6
-
-    for (let r = 0; r < SIZE; r++) {
-        for (let c = 0; c < SIZE; c++) {
-            if (Math.random() > keep) puzzle[r][c] = 0;
-        }
-    }
-
-    return puzzle;
-}
 
 /* ======================= RENDER ======================= */
 
@@ -194,7 +119,10 @@ function renderNotes(index) {
 
 function clearNotesUI(index) {
     const spans = cells[index].querySelectorAll(".cell-notes span");
-    spans.forEach(s => s.classList.remove("active"));
+    spans.forEach(s => {
+        s.classList.remove("active");
+        s.classList.remove("hint-note");
+    });
 }
 
 function getCurrentBoard() {
@@ -391,6 +319,7 @@ function removeNumberFromPeers(index, number) {
 function clearSelectionVisuals() {
     cells.forEach(c => {
         c.classList.remove("selected", "highlight", "same-number");
+        c.querySelectorAll(".cell-notes span").forEach(s => s.classList.remove("hint-note"));
     });
 }
 
@@ -439,11 +368,7 @@ function startGame(diff, hpAmount) {
     currentSolution = generateSolvedSudoku();
     const puzzle = generatePuzzle(currentSolution, diff);
 
-    cells.forEach(c => {
-        c.classList.remove("selected");
-        c.classList.remove("highlight");
-        c.classList.remove("same-number");
-    });
+    clearSelectionVisuals();
 
     renderBoard(puzzle);
     autoNotes();
@@ -609,44 +534,111 @@ function clearCell(index) {
 
 /* pomoc */
 
-helpBtn.onclick = () => {
+function searchBox(boxIndex) {
+    const boxCells = Array.from(cells).filter(c => Number(c.dataset.box) === boxIndex);
+    return findHiddenSingle(boxCells);
+}
 
-    if (!boardActive || gameOver) return;
+function searchRow(rowIndex) {
+    const rowCells = Array.from(cells).filter(c => Math.floor(Array.from(cells).indexOf(c) / 9) === rowIndex);
+    return findHiddenSingle(rowCells);
+}
 
-    if (pointhelp <= 0) return;
+function searchCol(colIndex) {
+    const colCells = Array.from(cells).filter(c => (Array.from(cells).indexOf(c) % 9) === colIndex);
+    return findHiddenSingle(colCells);
+}
 
-    let emptyCells = [];
+function findHiddenSingle(group) {
+    const emptyCells = group.filter(c => !c.querySelector(".cell-value").textContent);
 
-    cells.forEach((cell, i) => {
+    for (let num = 1; num <= 9; num++) {
+        let count = 0;
+        let lastFoundCell = null;
 
-        const value = cell.querySelector(".cell-value").textContent;
+        emptyCells.forEach(cell => {
+            const idx = Array.from(cells).indexOf(cell);
+            if (notes[idx].has(num)) {
+                count++;
+                lastFoundCell = cell;
+            }
+        });
 
-        if (!value && cell.dataset.fixed !== "true") {
-            emptyCells.push(i);
+        if (count === 1) {
+            return { cell: lastFoundCell, number: num, group: group };
         }
+    }
+    return null;
+}
 
-    });
+function highlightHelpGroup(groupCells) {
+    clearSelectionVisuals();
+    groupCells.forEach(c => c.classList.add("highlight"));
+}
 
-    if (emptyCells.length === 0) return;
+function markHintNote(cell, num) {
+    const span = cell.querySelector(`.cell-notes span[data-note="${num}"]`);
+    if (span) {
+        span.classList.add("hint-note");
+    }
+}
 
-    const randomIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-
-    const r = Math.floor(randomIndex / 9);
-    const c = randomIndex % 9;
-
-    const correctNumber = currentSolution[r][c];
-
-    setCellValue(randomIndex, correctNumber);
-
-    cells[randomIndex].classList.add("correct");
-
-    pointhelp--;
-
-    pointHelpEl.textContent = pointhelp + "/" + maxhelp;
+helpBtn.onclick = () => {
+    if (!boardActive || gameOver || pointhelp <= 0) return;
 
     clearSelectionVisuals();
+    let possibleHints = [];
+
+    for (let i = 0; i < 9; i++) {
+        const hint = searchBox(i);
+        if (hint) possibleHints.push(hint);
+    }
+
+    if (possibleHints.length === 0) {
+        for (let i = 0; i < 9; i++) {
+            const rowHint = searchRow(i);
+            if (rowHint) possibleHints.push(rowHint);
+
+            const colHint = searchCol(i);
+            if (colHint) possibleHints.push(colHint);
+        }
+    }
+
+    if (possibleHints.length > 0) {
+        const finalHint = possibleHints[Math.floor(Math.random() * possibleHints.length)];
+
+        highlightHelpGroup(finalHint.group);
+        markHintNote(finalHint.cell, finalHint.number);
+
+        selectedIndex = Array.from(cells).indexOf(finalHint.cell);
+    } else {
+        let emptyIndices = [];
+        cells.forEach((cell, i) => {
+            if (!cell.querySelector(".cell-value").textContent && cell.dataset.fixed !== "true") {
+                emptyIndices.push(i);
+            }
+        });
+
+        if (emptyIndices.length > 0) {
+            const randomIndex = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+            const r = Math.floor(randomIndex / 9);
+            const c = randomIndex % 9;
+            const correctNum = currentSolution[r][c];
+
+            highlightHelpGroup([cells[randomIndex]]);
+            setCellValue(randomIndex, correctNum);
+            cells[randomIndex].classList.add("correct");
+            selectedIndex = randomIndex;
+        }
+    }
+
+    pointhelp--;
+    pointHelpEl.textContent = pointhelp + "/" + maxhelp;
     checkWin();
 };
+
+
+/* cofanie */
 
 document.getElementById("back").onclick = () => {
 
