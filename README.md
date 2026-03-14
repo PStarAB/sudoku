@@ -9,3 +9,5 @@
 
 # creating new js to generate puzzle
 # is it solvable?
+
+# help uptade + separate file
