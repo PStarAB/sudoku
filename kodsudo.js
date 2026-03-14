@@ -360,6 +360,7 @@ function loseHP() {
     if (hp <= 0) {
         gameOver = true;
         alert("Przegrana!");
+        clearDifficultyActive();
         unlockDifficulty();
     }
 }
@@ -427,6 +428,12 @@ function setDifficultyActive(btn) {
     });
 
     btn.classList.add("difficulty-active");
+}
+
+function clearDifficultyActive() {
+    difficultyButtons.forEach(btn => {
+        btn.classList.remove("difficulty-active");
+    });
 }
 
 /* ======================= NOTE MODE ======================= */
@@ -691,7 +698,7 @@ document.getElementById("reset").onclick = () => {
     pointHelpEl.textContent = "0";
 
     clearSelectionVisuals();
-
+    clearDifficultyActive();
     unlockDifficulty();
 };
 
@@ -787,6 +794,7 @@ function handleWin() {
 
     boardActive = false;
     clearSelectionVisuals();
+    clearDifficultyActive();
     unlockDifficulty();
     updateNumberButtons();
 }
