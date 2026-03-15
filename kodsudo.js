@@ -18,7 +18,6 @@ const boardEl = document.querySelector(".sudoku");
 
 const cells = document.querySelectorAll(".cell");
 const difficultyButtons = [
-    document.getElementById("test"),
     document.getElementById("easy"),
     document.getElementById("medium"),
     document.getElementById("hard")
@@ -421,11 +420,6 @@ document.getElementById("medium").onclick = function () {
 document.getElementById("hard").onclick = function () {
     setDifficultyActive(this);
     startGame("hard", 4);
-};
-
-document.getElementById("test").onclick = function () {
-    setDifficultyActive(this);
-    startGame("test", 9);
 };
 
 function lockDifficulty() {
