@@ -6,8 +6,11 @@
 body {
     background: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     padding: 10px;
+    min-height: 100px;
 }
 
 .app {
@@ -17,6 +20,20 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 600px;
+}
+
+.info {
+    background: lightgray;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.info p {
+    font-size: 15px;
 }
 
 h1 {
@@ -64,7 +81,7 @@ h1 {
     grid-template-columns: repeat(9, 1fr);
     width: 100%;
     aspect-ratio: 1 / 1;
-    border: 3px solid black;
+    border: 3px solid black !important;
 }
 
 /* pojedyncza komórka */
@@ -79,17 +96,17 @@ h1 {
 }
 
 .cell:nth-child(3n) {
-    border-right: 3px solid black;
+    border-right: 3px solid black !important;
 }
 
 .cell:nth-child(n+19):nth-child(-n+27),
 .cell:nth-child(n+46):nth-child(-n+54),
 .cell:nth-child(n+73):nth-child(-n+81) {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid black !important;
 }
 
 .cell:nth-child(9n) {
-    border-right: 3px solid black;
+    border-right: 3px solid black !important;
 }
 
 /* STARTOWE KOMÓRKI */
@@ -115,6 +132,24 @@ h1 {
 .cell.correct.selected {
     color: green;
     opacity: 1;
+}
+
+.cell.dimmed .cell-value {
+    opacity: 0.5;
+    /* Bardzo jasny tekst cyfry */
+}
+
+.cell.fixed.dimmed .cell-value {
+    opacity: 0.5;
+}
+
+.cell.dimmed {
+    background-color: white !important;
+}
+
+.cell.same-number .cell-value {
+    color: black !important;
+    opacity: 1 !important;
 }
 
 /*  VALUE  */
@@ -157,7 +192,8 @@ h1 {
 
 .cell-notes span.same-note {
     font-weight: 900;
-    color: #000;
+    color: black;
+    opacity: 1;
 }
 
 /* gdy wpisana jest wartość – notatki znikają */
@@ -259,6 +295,7 @@ h1 {
 
 .cell.highlight {
     background: #dce5ff;
+    opacity: 0.5;
 }
 
 .cell.same-number {
@@ -290,6 +327,17 @@ h1 {
         max-width: 100%;
         padding: 12px;
         border-radius: 0;
+    }
+
+    .info {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px;
+        border-radius: 0;
+    }
+
+    .info p {
+        font-size: 2vw;
     }
 
     .sudoku {

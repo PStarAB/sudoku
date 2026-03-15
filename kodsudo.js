@@ -110,7 +110,7 @@ function checkNotes() {
         if (notes[i].size === 1) {
             const singleValue = Array.from(notes[i])[0];
 
-            setCellValue(i, singleValue);
+            setCellValue(i, singleValue, false);
 
             removeNumberFromPeers(i, singleValue);
         }
@@ -191,7 +191,7 @@ function saveHistory(index) {
 
 }
 
-function setCellValue(index, value) {
+function setCellValue(index, value, shouldHighlight = true) {
     saveHistory(index);
 
     const cell = cells[index];
@@ -205,6 +205,10 @@ function setCellValue(index, value) {
 
     validateCell(index);
 
+    if (shouldHighlight) {
+        highlightNumber(value);
+    }
+
     updateNumberButtons();
     checkWin();
 }
@@ -216,7 +220,6 @@ cells.forEach((cell, index) => {
         if (gameOver) return;
 
         clearSelectionVisuals();
-
         cell.classList.add("selected");
 
         const row = Number(cell.dataset.row);
@@ -234,22 +237,25 @@ cells.forEach((cell, index) => {
         });
 
         const value = cell.querySelector(".cell-value").textContent;
-
-        if (value) {
-            cells.forEach(c => {
-                const v = c.querySelector(".cell-value").textContent;
-                if (v === value) {
-                    c.classList.add("same-number");
-                }
-            });
-        }
-
         selectedIndex = index;
+
+        resetNumberButtonsVisuals();
 
         if (value) {
             highlightNumber(Number(value));
         } else {
-            document.querySelectorAll(".cell-notes span").forEach(s => s.classList.remove("same-note"));
+            if (notes[index].size > 0) {
+                notes[index].forEach(num => {
+                    highlightNumber(num, false);
+                });
+
+                document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
+                    const btnNum = Number(btn.dataset.number);
+                    if (!notes[index].has(btnNum)) {
+                        btn.style.opacity = "0.5";
+                    }
+                });
+            }
         }
     });
 });
@@ -326,14 +332,22 @@ function removeNumberFromPeers(index, number) {
     });
 }
 
-/* ======================= GAME STATE ======================= */
+/*  GAME STATE  */
 
 function clearSelectionVisuals() {
     cells.forEach(c => {
-        c.classList.remove("selected", "highlight", "same-number");
-        c.querySelectorAll(".cell-notes span").forEach(s => s.classList.remove("hint-note"));
+        c.classList.remove("selected", "highlight", "same-number", "dimmed");
+        c.querySelectorAll(".cell-notes span").forEach(s => {
+            s.classList.remove("hint-note", "same-note");
+        });
     });
+    resetNumberButtonsVisuals();
 }
+
+document.getElementById("stop").onclick = () => {
+    clearSelectionVisuals();
+    selectedIndex = null;
+};
 
 function updateNumberButtons() {
     const counts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 1, 7: 0, 8: 0, 9: 0 }; // reset licznika
@@ -707,28 +721,45 @@ document.getElementById("reset").onclick = () => {
     unlockDifficulty();
 };
 
-function highlightNumber(num) {
+function resetNumberButtonsVisuals() {
+    updateNumberButtons();
+}
+
+function highlightNumber(num, clearOthers = true) {
+    if (clearOthers) {
+        cells.forEach(cell => {
+            cell.classList.remove("same-number", "dimmed");
+            cell.querySelectorAll(".cell-notes span").forEach(span => span.classList.remove("same-note"));
+        });
+    }
+
+    if (selectedIndex === null) return;
+
+    const selectedCell = selectedIndex !== null ? cells[selectedIndex] : null;
+    const hasValue = selectedCell ? selectedCell.querySelector(".cell-value").textContent !== "" : false;
+
     cells.forEach(cell => {
         const value = cell.querySelector(".cell-value").textContent;
-
-        cell.classList.remove("same-number");
-
         const spans = cell.querySelectorAll(".cell-notes span");
 
-        spans.forEach(span => span.classList.remove("same-note"));
-
-        if (value == num) {
-            cell.classList.add("same-number");
-        }
-
-        spans.forEach(span => {
-            if (
-                span.dataset.note == num &&
-                span.classList.contains("active")
-            ) {
-                span.classList.add("same-note");
+        if (hasValue) {
+            if (value == num) {
+                cell.classList.add("same-number");
+            } else {
+                cell.classList.add("dimmed")
             }
-        });
+            spans.forEach(span => {
+                if (span.dataset.note == num && span.classList.contains("active")) {
+                    span.classList.add("same-note");
+                }
+            });
+        } else {
+            spans.forEach(span => {
+                if (span.dataset.note == num && span.classList.contains("active")) {
+                    span.classList.add("same-note");
+                }
+            });
+        }
     });
 }
 
