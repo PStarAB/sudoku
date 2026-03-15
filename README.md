@@ -1,4 +1,4 @@
-# sudoku
+# SUDOKU
 
 # mobile edition now
 # trying to fix it
@@ -11,3 +11,7 @@
 # is it solvable?
 
 # help uptade + separate file
+
+# opacity and change
+
+# check function changes

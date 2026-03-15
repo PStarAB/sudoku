@@ -104,6 +104,19 @@ function autoNotes() {
     });
 }
 
+function checkNotes() {
+    cells.forEach((cell, i) => {
+        if (cell.dataset.fixed === "true" || cell.classList.contains("filled")) return;
+
+        if (notes[i].size === 1) {
+            const singleValue = Array.from(notes[i])[0];
+
+            setCellValue(i, singleValue);
+
+            removeNumberFromPeers(i, singleValue);
+        }
+    });
+}
 
 /* ======================= NOTES UI ======================= */
 
@@ -390,6 +403,7 @@ function startGame(diff, hpAmount) {
     boardActive = true;
 
     lockDifficulty();
+    updateNumberButtons();
 }
 
 /* ======================= DIFFICULTY ======================= */
@@ -461,29 +475,28 @@ document.getElementById("check").onclick = () => {
     cells.forEach((cell, i) => {
         const r = Math.floor(i / 9);
         const c = i % 9;
-
         const value = Number(board[r][c]);
 
         cell.classList.remove("correct", "wrong");
 
         if (cell.dataset.fixed === "true") return;
 
-        if (value !== Number(currentSolution[r][c])) {
-            allCorrect = false;
-
-            if (value) {
+        if (value !== 0) {
+            if (value !== Number(currentSolution[r][c])) {
+                allCorrect = false;
                 cell.classList.add("wrong");
+            } else {
+                cell.classList.add("correct");
+                removeNumberFromPeers(i, value);
             }
         } else {
-            cell.classList.add("correct");
+            allCorrect = false;
         }
     });
 
-    autoNotes();
+    checkNotes();
 
     if (!allCorrect) {
-        //loseHP();
-
         if (hp <= 0) {
             if (hp <= 0) {
                 gameOver = true;
@@ -491,11 +504,9 @@ document.getElementById("check").onclick = () => {
                 winCount = 0;
                 winEl.textContent = winCount;
 
-                /*alert("Przegrana!");*/
                 unlockDifficulty();
             }
         }
-
         return;
     }
 
@@ -727,7 +738,7 @@ function highlightNumber(num) {
     });
 }
 
-/* uptade buttons */
+/* update buttons */
 
 function updateNumberButtons() {
     const board = getCurrentBoard();

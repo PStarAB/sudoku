@@ -1,3 +1,5 @@
+// puzzle generator
+
 const SIZE = 9;
 const SUBGRID = 3;
 
