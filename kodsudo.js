@@ -213,7 +213,7 @@ function setCellValue(index, value, shouldHighlight = true) {
     checkWin();
 }
 
-/* ======================= CLICK HANDLING ======================= */
+/*  CLICK HANDLING  */
 
 cells.forEach((cell, index) => {
     cell.addEventListener("click", () => {
@@ -257,11 +257,15 @@ cells.forEach((cell, index) => {
                 });
             }
         }
+
+        updateNumberButtons();
     });
 });
 
 document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
     btn.addEventListener("click", () => {
+        if (btn.disabled) return;
+
         const num = Number(btn.dataset.number);
 
         highlightNumber(num);
@@ -283,14 +287,14 @@ document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
             }
 
             renderNotes(selectedIndex);
-
+            updateNumberButtons();
         } else {
             setCellValue(selectedIndex, num);
         }
     });
 });
 
-/* ======================= VALIDATION ======================= */
+/*  VALIDATION  */
 
 function validateCell(index) {
     const cell = cells[index];
@@ -342,6 +346,7 @@ function clearSelectionVisuals() {
         });
     });
     resetNumberButtonsVisuals();
+    selectedIndex = null;
 }
 
 document.getElementById("stop").onclick = () => {
@@ -350,22 +355,31 @@ document.getElementById("stop").onclick = () => {
 };
 
 function updateNumberButtons() {
-    const counts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 1, 7: 0, 8: 0, 9: 0 }; // reset licznika
+    if (!currentSolution) return;
+
+    const counts = {};
     for (let i = 1; i <= 9; i++) counts[i] = 0;
 
     cells.forEach((cell, i) => {
         const val = cell.querySelector(".cell-value").textContent;
         const r = Math.floor(i / 9);
         const c = i % 9;
-
         if (val && Number(val) === currentSolution[r][c]) {
             counts[val]++;
         }
     });
 
+    const currentNotes = selectedIndex !== null ? notes[selectedIndex] : null;
+    const isCellFilled = selectedIndex !== null ? cells[selectedIndex].classList.contains("filled") : false;
+
     document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
-        const num = btn.dataset.number;
-        if (counts[num] >= 9) {
+        const num = Number(btn.dataset.number);
+
+        const isComplete = counts[num] >= 9;
+
+        const notInNotes = selectedIndex !== null && !isCellFilled && !currentNotes.has(num);
+
+        if (isComplete || notInNotes) {
             btn.disabled = true;
             btn.style.opacity = "0.2";
             btn.style.cursor = "not-allowed";
@@ -458,7 +472,7 @@ function clearDifficultyActive() {
     });
 }
 
-/* ======================= NOTE MODE ======================= */
+/*  NOTE MODE  */
 
 const notesBtn = document.getElementById("notes-toggle");
 
@@ -470,6 +484,8 @@ notesBtn.onclick = () => {
     } else {
         notesBtn.classList.remove("active-notes");
     }
+
+    updateNumberButtons();
 };
 
 /* sprawdz */
@@ -766,9 +782,9 @@ function highlightNumber(num, clearOthers = true) {
 /* update buttons */
 
 function updateNumberButtons() {
-    const board = getCurrentBoard();
-    const counts = {};
+    if (!currentSolution) return;
 
+    const counts = {};
     for (let i = 1; i <= 9; i++) counts[i] = 0;
 
     cells.forEach((cell, i) => {
@@ -780,16 +796,27 @@ function updateNumberButtons() {
         }
     });
 
+    const currentNotes = (selectedIndex !== null) ? notes[selectedIndex] : null;
+    const isFilled = (selectedIndex !== null) ? cells[selectedIndex].classList.contains("filled") : false;
+
     document.querySelectorAll(".numbers button[data-number]").forEach(btn => {
-        const num = btn.dataset.number;
-        if (counts[num] >= 9) {
+        const num = Number(btn.dataset.number);
+
+        // Warunek 1: Cyfra jest już ułożona 9 razy (zawsze blokuje)
+        const isComplete = counts[num] >= 9;
+
+        // Warunek 2: Blokuj na podstawie notatek TYLKO jeśli noteMode jest WYŁĄCZONY
+        // i komórka nie jest wypełniona
+        const notInNotes = !noteMode && (selectedIndex !== null && !isFilled && !currentNotes.has(num));
+
+        if (isComplete || notInNotes) {
             btn.disabled = true;
-            btn.style.opacity = "0.3";
-            btn.style.cursor = "not-allowed";
+            btn.style.opacity = "0.2";
+            btn.style.pointerEvents = "none";
         } else {
             btn.disabled = false;
             btn.style.opacity = "1";
-            btn.style.cursor = "pointer";
+            btn.style.pointerEvents = "auto";
         }
     });
 }

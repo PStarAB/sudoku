@@ -130,7 +130,7 @@ h1 {
 }
 
 .cell.correct.selected {
-    color: green;
+    color: green !important;
     opacity: 1;
 }
 
@@ -148,7 +148,7 @@ h1 {
 }
 
 .cell.same-number .cell-value {
-    color: black !important;
+    color: black;
     opacity: 1 !important;
 }
 
