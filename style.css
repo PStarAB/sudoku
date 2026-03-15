@@ -57,7 +57,7 @@ h1 {
     gap: 10px;
 }
 
-/* ================= SUDOKU ================= */
+/*  SUDOKU  */
 
 .sudoku {
     display: grid;
@@ -117,7 +117,7 @@ h1 {
     opacity: 1;
 }
 
-/* ================= VALUE ================= */
+/*  VALUE  */
 
 .cell-value {
     font-size: 26px;
@@ -131,7 +131,7 @@ h1 {
     justify-content: center;
 }
 
-/* ================= NOTES ================= */
+/*  NOTES  */
 
 .cell-notes {
     position: absolute;
@@ -170,14 +170,14 @@ h1 {
     color: white;
 }
 
-/* ================= STATES ================= */
+/*  STATES  */
 
 .cell.selected {
     background: #b7caff !important;
 }
 
 
-/* ================= NUMBERS ================= */
+/*  NUMBERS  */
 
 .numbers {
     display: grid;
