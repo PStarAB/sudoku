@@ -86,7 +86,7 @@ function generatePuzzle(solution, difficulty) {
     let puzzle = copyBoard(solution);
 
     let keep;
-    if (difficulty === "easy") keep = 40;
+    if (difficulty === "easy") keep = 34;
     else if (difficulty === "medium") keep = 30;
     else if (difficulty === "hard") keep = 25;
     else if (difficulty === "test") keep = 60;

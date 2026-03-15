@@ -32,7 +32,7 @@ let history = [];
 const pointHelpEl = document.getElementById("pointhelp");
 const helpBtn = document.getElementById("help");
 
-/* ======================= RENDER ======================= */
+/*  RENDER  */
 
 function renderBoard(board) {
     currentPuzzle = board;
@@ -59,7 +59,7 @@ function renderBoard(board) {
     });
 }
 
-/* ======================= AUTO NOTES ======================= */
+/*  AUTO NOTES  */
 
 function getPossibleNumbers(board, row, col) {
     const used = new Set();
@@ -117,7 +117,7 @@ function checkNotes() {
     });
 }
 
-/* ======================= NOTES UI ======================= */
+/*  NOTES UI  */
 
 function renderNotes(index) {
     const cell = cells[index];
@@ -154,7 +154,7 @@ function getCurrentBoard() {
     return board;
 }
 
-/* ======================= VALUE SET ======================= */
+/*  VALUE SET  */
 
 function saveHistory(index) {
 
@@ -431,9 +431,12 @@ function startGame(diff, hpAmount) {
 
     lockDifficulty();
     updateNumberButtons();
+    for (let i = 0; i <= 25; i++) {
+        checkNotes();
+    }
 }
 
-/* ======================= DIFFICULTY ======================= */
+/*  DIFFICULTY  */
 
 document.getElementById("easy").onclick = function () {
     setDifficultyActive(this);
