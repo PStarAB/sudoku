@@ -93,13 +93,12 @@ h1 {
 
 /* STARTOWE KOMÓRKI */
 .cell.fixed {
-    background-color: #e0e0e0;
     font-weight: bold;
 }
 
 /* POPRAWNE PO SPRAWDZENIU */
 .cell.correct {
-    background-color: #ccffcc !important;
+    color: green;
 }
 
 /* BŁĘDNE PO SPRAWDZENIU */
@@ -112,7 +111,7 @@ h1 {
 }
 
 .cell.correct.selected {
-    background-color: #90fe90 !important;
+    color: green;
 }
 
 /* ================= VALUE ================= */
@@ -263,13 +262,10 @@ h1 {
     background: #b7caff;
 }
 
-.cell.correct.same-number {
-    background: #90fe90 !important;
-}
-
 .cell-notes span.hint-note {
     color: green !important;
     font-weight: bold !important;
+    font-size: 20px;
 }
 
 /* ================= MOBILE ================= */
@@ -347,5 +343,11 @@ h1 {
     .stats {
         width: 100%;
         font-size: 4vw;
+    }
+
+    .cell-notes span.hint-note {
+        color: green !important;
+        font-weight: bold !important;
+        font-size: 3vw;
     }
 }
